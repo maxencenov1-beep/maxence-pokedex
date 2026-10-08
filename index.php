@@ -1,8 +1,15 @@
 <?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+//Charge les variables dans le fichier .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
 try {
-    $dsn = "mysql:host=gateway01.eu-central-1.prod.aws.tidbcloud.com;port=4000;dbname=maxence-pokedex";
-    $username = "2Xg5J4xuTyW1aWB.root";
-    $password = "BLlPJlHVLsIh9SbL";
+    $dsn = "mysql:host={$_ENV['DB_HOST']};port={$_ENV['DB_PORT']};dbname={$_ENV['DB_NAME']}";
+    $username = $_ENV['DB_USERNAME'];
+    $password = $_ENV['DB_PASSWORD'];
 
     $options = [
         // ignore les certificats
