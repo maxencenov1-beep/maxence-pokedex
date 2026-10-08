@@ -25,4 +25,25 @@ try {
     echo("Connection à la BDD impossible". $e->getMessage());
     die();
 }
+
+
+//Prépare la requete 
+$select = $connection->query("SELECT* FROM pokemon");
+
+//Envoie la requete
+$pokemons = $select->fetchALL(PDO::FETCH_OBJ);
+
+var_dump($pokemons);
+
+// echo ($pokemons[0]["pokemon_nom"]);
+
+foreach ($pokemons as $pokemon) {
+    echo("<img width='150px' src='{$pokemon->$pokemon_img}'>");
+    echo("<h1>{pokemon->pokemon_nom}</h1>");
+}
+
+
+
+
+
 ?>
