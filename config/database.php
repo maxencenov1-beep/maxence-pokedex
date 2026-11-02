@@ -17,7 +17,6 @@ $options = [
 
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
-     echo "Connexion à la base de données réussie !";
 } catch (\PDOException $e) {
      // En cas d'échec, le message s'affiche proprement
      throw new \PDOException($e->getMessage(), (int)$e->getCode());
