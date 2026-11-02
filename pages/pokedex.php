@@ -9,7 +9,7 @@ $pokemons = $select->fetchALL(PDO::FETCH_OBJ);
 
 
 foreach ($pokemons as $pokemon) {
-    echo ("<a href='detail.php'>");
+    echo ("<a href='detail.php?pokemon_id={$pokemon->pokemon_id}'>");
     echo("<img width='150px' src='{$pokemon->pokemon_img}'>");
     echo("<h1>{$pokemon->pokemon_nom}</h1>");
     echo ("</a>");
